@@ -27,13 +27,34 @@ def create_folder():
     if not os.path.exists(os.path.join(os.getcwd(), folder_name)):
         print('Creating Directory structure')
         for folder in folder_Structure:
-            os.makedirs(f'{os.path.join(os.getcwd, folder_name)}/{folder}')
+            os.makedirs(f'{os.path.join(os.getcwd(), folder_name)}/{folder}')
+        os.makedirs('')
 
+#install tailwind
 def install_tailwind():
     'Installs tailwind and configures it'
-#install tailwind
-print('Installing TailWind')
-subprocess.
+    print('creating package.json')
+    os.system('npm init -y')
+
+    print('Installing TailWind')
+    os.system('npm install -D tailwindcss@latest postcss@latest autoprefixer@latest')
+
+    print('configuring tailwind')
+    os.system('npx tailwindcss init')
+    
+    print('creating files and content')
+    os.makedirs(f'{os.path.join(os.getcwd(),folder_name)}/src/css')
+    os.makedirs(f'{os.path.join(os.getcwd(),folder_name)}/src/css/tailwindcss')
+
+    os.system(f'echo "@tailwind base;\n@tailwind components;\n@tailwind utilities;" > {os.path.join(os.getcwd(),folder_name)}/src/css/tailwindcss')
+
+    
+
+
+
+
+
+
 
     
 
