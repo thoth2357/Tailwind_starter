@@ -8,7 +8,8 @@ from click import argument
 
 
 arguments = sys.argv[1:]
-  
+
+
 try:
     opts, args = getopt.getopt(arguments, "n:l:", 
                                 ["project_name ="])
@@ -23,7 +24,7 @@ for opt, arg in opts:
 
 #create folder
 def create_folder():
-    'Creates folder structure'
+    '''Creates folder structure'''
     folder_Structure = ['public', 'src']
     if not os.path.exists(os.path.join(os.getcwd(), folder_name)):
         print('Creating Directory structure')
@@ -37,7 +38,7 @@ def install_tailwind():
     os.chdir(os.path.join(os.getcwd(), folder_name))
     os.system('npm init -y')
 
-    print('Installing TailWind')
+    print('Installing TailWind and LiveServer')
     os.system('npm install -D tailwindcss@latest postcss@latest autoprefixer@latest')
 
     print('configuring tailwind')
@@ -74,10 +75,8 @@ def install_tailwind():
 
 def run_builds():
     'runs the tailwind configuraton'
-
     os.system('npm run build')
-
-    
+    print('Script completed ..Start Editing the public/index.html')
 
 create_folder()
 install_tailwind()
