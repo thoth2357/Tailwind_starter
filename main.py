@@ -4,8 +4,6 @@ import os
 import subprocess
 import getopt
 
-from click import argument
-
 
 arguments = sys.argv[1:]
 
